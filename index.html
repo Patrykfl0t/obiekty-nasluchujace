@@ -4,26 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>obiekty nasluchujace</title>
+    <title>Obiekty nasłuchujące</title>
 </head>
 <body>
-    <div class ="container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis saepe similique nulla sapiente. Repellat tenetur culpa aperiam voluptatem, quidem dolore!</p>
-        <label for="textcolorinp">wybierz kolor tekstu<input type="color" id="textcolorinp"></label>
-        <button>zmień</button>
+    <div id="div1">
+        <p id="paragraf1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis saepe similique nulla sapiente. Repellat tenetur culpa aperiam voluptatem, quidem dolore!</p>
     </div>
+
+    <div id="div2">
+        <p id="paragraf2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea reiciendis distinctio amet eaque mollitia commodi, eum qui ad suscipit earum.</p>
+    </div>
+
+    <div id="div3">
+        <p id="paragraf3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea reiciendis distinctio amet eaque mollitia commodi, eum qui ad suscipit earum.</p>
+    </div>
+
+    <label for="textcolorinp">Wybierz kolor tekstu:<input type="color" id="textcolorinp"></label>
+    <label for="paragraphSelect">Wybierz paragraf:
+        <select id="paragraphSelect">
+            <option value="paragraf1">Paragraf 1</option>
+            <option value="paragraf2">Paragraf 2</option>
+            <option value="paragraf3">Paragraf 3</option>
+        </select>
+    </label>
+    <button id="changeAll">Zmień wszystkie</button>
+    <button id="changeOne">Zmień wybrany</button>
+
     <script>
-        const paragr = document.querySelector('p')
-        const textcolorinp = document.querySelector('[type="color"]')
-        const btn = document.querySelector('button')
+        const textcolorinp = document.querySelector('[type="color"]');
+        const changeAllBtn = document.querySelector('#changeAll');
+        const changeOneBtn = document.querySelector('#changeOne');
+        const paragraphSelect = document.querySelector('#paragraphSelect');
+        const paragraphs = document.querySelectorAll('p');
 
-        // function changecolor(color)
-        //
-        //
-        btn.addEventListener('click', function(){
-            paragr.style.color = textcolorinp.value
-        })
+        changeAllBtn.addEventListener('click', function () {
+            paragraphs.forEach(paragraph => {
+                paragraph.style.color = textcolorinp.value;
+            });
+        });
 
+        changeOneBtn.addEventListener('click', function () {
+            const selectedParagraphId = paragraphSelect.value;
+            const selectedParagraph = document.querySelector(`#${selectedParagraphId}`);
+
+            if (selectedParagraph) {
+                selectedParagraph.style.color = textcolorinp.value;
+            }
+        });
     </script>
 </body>
 </html>
