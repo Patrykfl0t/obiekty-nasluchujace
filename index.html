@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>obiekty nasluchujace</title>
+</head>
+<body>
+    <div class ="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis saepe similique nulla sapiente. Repellat tenetur culpa aperiam voluptatem, quidem dolore!</p>
+        <label for="textcolorinp">wybierz kolor tekstu<input type="color" id="textcolorinp"></label>
+        <button>zmień</button>
+    </div>
+    <script>
+        const paragr = document.querySelector('p')
+        const textcolorinp = document.querySelector('[type="color"]')
+        const btn = document.querySelector('button')
+
+        // function changecolor(color)
+        //
+        //
+        btn.addEventListener('click', function(){
+            paragr.style.color = textcolorinp.value
+        })
+
+    </script>
+</body>
+</html>
